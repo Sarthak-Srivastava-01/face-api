@@ -1,0 +1,18 @@
+[phases.setup]
+nixPkgs = [
+"libx11",
+"libxext",
+"libxrender",
+"libgl1",
+"glibc",
+"gcc",
+"gfortran",
+"pkg-config",
+"python311Full"
+]
+
+[phases.build]
+cmds = [
+"pip install --upgrade pip",
+"pip install -r requirements.txt"
+]
