@@ -1,2 +1,2 @@
 [build]
-nixpacksPlan = "plan.toml"
+nixpacks = { plan = "plan.toml" }
