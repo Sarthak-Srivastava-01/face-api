@@ -6,6 +6,8 @@ import zipfile
 import shutil
 
 app = Flask(__name__)
+# Use the dynamically assigned port from the environment or fallback to 5000
+port = int(os.environ.get("PORT", 5000))
 
 @app.route("/recognize", methods=["POST"])
 def recognize():
@@ -51,4 +53,5 @@ def recognize():
             pass  # Ignore cleanup errors
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    # Listen on all network interfaces (0.0.0.0) and use the dynamic port
+    app.run(host="0.0.0.0", port=port)
