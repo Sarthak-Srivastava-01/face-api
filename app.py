@@ -4,6 +4,7 @@ import os
 import tempfile
 import zipfile
 import shutil
+import traceback
 
 app = Flask(__name__)
 # Use the dynamically assigned port from the environment or fallback to 5000
@@ -41,7 +42,7 @@ def recognize():
     except zipfile.BadZipFile:
         return jsonify({"error": "Invalid ZIP file uploaded."}), 400
     except Exception as e:
-        return jsonify({"error": f"Server error: {str(e)}"}), 500
+        return jsonify({"error": f"Server error: {traceback.format_exc()}"}), 500
     finally:
         # Cleanup temporary files/directories
         try:
